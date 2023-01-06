@@ -25,11 +25,10 @@ SECRET_KEY = 'django-insecure-^4!oiv9%h2a*wfz8&5l9*9*xb33et$%n%qy4_p^e7or6l)8!(b
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['djangophotoshareapp-production.up.railway.app',]
+#ALLOWED_HOSTS = ['']
 
 CSRF_TRUSTED_ORIGINS = ['djangophotoshareapp-production.up.railway.app',]
 
-CSRF_COOKIE_SECURE=False
 
 # Application definition
 
