@@ -15,8 +15,8 @@
                 <a href="{% url 'gallery' %}" class="btn btn-dark my-3">Go Back</a>
                 
                 <div style="height: 70vh;">
-                    {% load static %}
-                    <img style="max-width: 100%; max-height: 100%;" src="{% static {{photo.image.url}} %}" alt="">
+                    
+                    <img style="max-width: 100%; max-height: 100%;" src="{{photo.image.url}}" alt="">
                     <p>{{photo.description}}</p>
                 </div>
             </div>
