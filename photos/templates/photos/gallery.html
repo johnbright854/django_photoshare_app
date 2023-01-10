@@ -141,11 +141,11 @@
             </div>
             <div class="col-md-9">
                 <div class="row">
-                    {% load static %}
+                    
                     {% for photo in photos %}
                     <div class="col-md-4">
                         <div class="card my-2">
-                            <img class="img-thumbnail" src="{% static {{photo.image.url}} %}" class="card-img-top" alt="...">
+                            <img class="img-thumbnail" src="{{photo.image.url}}" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <p>Category: {{photo.category.name}}</p> 
                             </div>
