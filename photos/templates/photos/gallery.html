@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    
     <title>
         Gallery
     </title>
@@ -26,64 +27,35 @@
             color: black;
         }
 
-        .list-group-item a:hover{
+        .list-group-item:hover{
             text-decoration:wavy;
-            color: grey;
+            background-color: #82D5E3;
+            color: white;
+            text-color: white;
         }
 
-        .list-group-item span{
-            position:absolute;
-            left: 90%;
-            visibility: visible;
+        .list-group-item a:hover{
+            color: white;
         }
+
+        
         .buttons{
             align-self: center;
             height:auto;
             padding:0%;
             margin: 0%;
         }
-
-        .category-btn{
-            outline: 0;
-            margin: none;
-            border: none;
-        }
-        .dropdown-item{
-            background-color: none;
-            outline: 0;
-        }
-
-        .dropdown-item :hover{
-            background-color: none;
-            outline: 0;
-        }
-
-        .dropdown-menu{
-            outline:none;
-            margin-bottom: 2px;
-            border-bottom-style:double;
-            width: 253px;
-        }
-
-        .dropdown-item{
-            outline:none;
-            border-bottom-style:double;
-        }
-        .text{
-            margin: 0%;
-            padding: 0%;
-            border: 0cm;
-            text-align: right;
-            pointer-events: none;
-        }
-
+        
+        
+        
+        
+        
         .logoutpage{
             text-align: right;
             text-decoration: none;
             text-decoration: white;
         
         }
-        
         
     </style>
 </head>
@@ -112,40 +84,36 @@
                 <div class="card">
                     <a class="btn btn-dark" style="pointer-events: none;"><i class="fa fa-user fa-fw"></i> <span style="text-transform:uppercase;">{{request.user}}</span></a>
 
-                    <a href="{% url 'add' %}" class="btn btn-light btn-block btn-sm">Add Photo</a>
-
-                    <div class="category-btn">
-                        <div class="dropdown">
-                            <a class="btn btn-light btn-sm btn-block dropdown-toggle" href="" role="button" data-toggle="dropdown" aria-expanded="false">
-                              Categories
-                            </a>
-                            <!--<ul class="list-group list-group-flush">-->
-                                <div class = "dropdown-menu">
-                                    <!--<li class="list-group-item">-->
-                                        <a class = "dropdown-item btn-block" href="{% url 'gallery' %}">All</a>
-                                    <!--</li>-->
-                                    
-
-                                    {% for category in categories %}
-                                    <!--<li class="list-group-item">-->
-                                        <a class = "dropdown-item" href="{% url 'gallery' %}?category={{category.name}}">{{category.name}}</a>
-                                    {% endfor %}
-                                    <!--</li>-->
-                                </div>
-                            <!--</ul>-->
-                        </div>
+                    <div class="card-header">
+                        Categories
                     </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <a href="{% url 'gallery' %}">All</a>
+                        </li>
+                        {% for category in categories %}
+                        <li class=" list-group-item">
+                            <a href="{% url 'gallery' %}?category={{category.name}}">
+                                {{category.name}}
+                            </a>
+                        </li>
+                        {% endfor %}
+
+
+                        <a href="{% url 'add' %}" class="btn btn-dark btn-block btn-sm m-0">Add Photo</a>
+                    </ul>
                     
                  
                 </div>
             </div>
             <div class="col-md-9">
                 <div class="row">
-                    
+
                     {% for photo in photos %}
                     <div class="col-md-4">
                         <div class="card my-2">
                             <img class="img-thumbnail" src="{{photo.image.url}}" class="card-img-top" alt="...">
+                            <h1></h1>
                             <div class="card-body">
                                 <p>Category: {{photo.category.name}}</p> 
                             </div>
@@ -167,4 +135,4 @@
         </div>
     </div>
 </body>
-</html>  
+</html>   
